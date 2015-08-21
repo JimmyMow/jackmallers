@@ -20,4 +20,7 @@ $(document).ready(function() {
   $('a[href="#"]').on('click', function(e) {
     e.preventDefault();
   });
+  $('#bitcoinmom').on('click', function() {
+    alert('Bitcoin mom is my step mom :)');
+  });
 });
