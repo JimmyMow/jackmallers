@@ -35,10 +35,12 @@ $(document).ready(function() {
   var the_guys = "url(<%= asset_path('the-guys-bg.png') %>)";
   var natioanls = "url(<%= asset_path('nationals-bg.png') %>)";
 
-  var arr = [initialBg, mj, kc, ma, state, jabari, the_guys, natioanls]; // changed
+  var arr = [initialBg, mj, kc, ma]; // changed
+  // var arr = [initialBg, mj, kc, ma, state, jabari, the_guys, natioanls]; // changed
   console.log("arr:", arr);
     (function recurse(counter) {
-        var bgImage = arr[Math.floor(Math.random()*arr.length)];
+        var bgImage = arr[counter];
+        // var bgImage = arr[Math.floor(Math.random()*arr.length)];
         if (firstTime == false) {
             $("#jumbotron").fadeOut("slow", function(){
                 $('#jumbotron').css('background-image', bgImage); // fixed
@@ -47,8 +49,8 @@ $(document).ready(function() {
         } else {
             firstTime = false;
         }
-        // delete arr[counter];
-        // arr.push(bgImage);
+        delete arr[counter];
+        arr.push(bgImage);
         setTimeout(function() {
             recurse(counter + 1);
         }, 4200);
