@@ -30,10 +30,15 @@ $(document).ready(function() {
   var mj = "url(<%= asset_path('mj-background.gif') %>)";
   var kc = "url(<%= asset_path('kc-background.gif') %>)";
   var ma = "url(<%= asset_path('ma-background.gif') %>)";
-  var arr = [initialBg, mj, kc, ma]; // changed
+  var state = "url(<%= asset_path('state-championship-bg.png') %>)";
+  var jabari = "url(<%= asset_path('me-jabari-bg.png') %>)";
+  var the_guys = "url(<%= asset_path('the-guys-bg.png') %>)";
+  var natioanls = "url(<%= asset_path('nationals-bg.png') %>)";
+
+  var arr = [initialBg, mj, kc, ma, state, jabari, the_guys, natioanls]; // changed
   console.log("arr:", arr);
     (function recurse(counter) {
-        var bgImage = arr[counter];
+        var bgImage = arr[Math.floor(Math.random()*arr.length)];
         if (firstTime == false) {
             $("#jumbotron").fadeOut("slow", function(){
                 $('#jumbotron').css('background-image', bgImage); // fixed
@@ -42,8 +47,8 @@ $(document).ready(function() {
         } else {
             firstTime = false;
         }
-        delete arr[counter];
-        arr.push(bgImage);
+        // delete arr[counter];
+        // arr.push(bgImage);
         setTimeout(function() {
             recurse(counter + 1);
         }, 4200);
