@@ -23,4 +23,29 @@ $(document).ready(function() {
   $('#bitcoinmom').on('click', function() {
     alert('Bitcoin mom is my step mom :)');
   });
+
+  var initialBg =  $('#jumbotron').css("background-image"); // added
+
+  var firstTime = true;
+  var mj = "url(<%= asset_path('mj-background.gif') %>)";
+  var kc = "url(<%= asset_path('kc-background.gif') %>)";
+  var ma = "url(<%= asset_path('ma-background.gif') %>)";
+  var arr = [initialBg, mj, kc, ma]; // changed
+  console.log("arr:", arr);
+    (function recurse(counter) {
+        var bgImage = arr[counter];
+        if (firstTime == false) {
+            $("#jumbotron").fadeOut("slow", function(){
+                $('#jumbotron').css('background-image', bgImage); // fixed
+            });
+            $("#jumbotron").fadeIn("slow");
+        } else {
+            firstTime = false;
+        }
+        delete arr[counter];
+        arr.push(bgImage);
+        setTimeout(function() {
+            recurse(counter + 1);
+        }, 4000);
+    })(0);
 });

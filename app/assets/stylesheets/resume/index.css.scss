@@ -1,5 +1,5 @@
 .jumbotron {
-    background: no-repeat center right fixed url(https://camo.githubusercontent.com/321a8431a7f5176ecaaea1def79a0cdd8650ff7d/687474703a2f2f7a697070792e6766796361742e636f6d2f46616e7461737469634561636841706c6f6d61646f66616c636f6e2e676966);
+    background: no-repeat center right fixed asset-data-url("coding-bg.gif");
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -10,6 +10,7 @@
     background-size: cover;
     margin-bottom: 0px;
     padding: 0px;
+    background-color: #000;
     .container {
         position: relative;
         top: 15%;
@@ -53,6 +54,9 @@
             h1 {
                 font-size: 36px;
                 display: block;
+            }
+            .sub-head {
+                font-size: 24px;
             }
         }
     }
