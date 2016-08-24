@@ -746,6 +746,9 @@
             width: 100%;
             margin: 20px 0;
             background: asset-data-url("subtle-dots.png");
+            &.zhe {
+                background-color: #d74444;
+            }
             &.jackschess {
                 background-color: #0C7CD5;
             }
